@@ -127,6 +127,10 @@ main {
   color: var(--base-color);
 }
 
+.logo-alt span {
+  color: var(--body-color);
+}
+
 /* nav */
 
 nav {
@@ -410,4 +414,91 @@ nav.show div.icon-close {
 
 .swiper-pagination-bullet-active {
   background: var(--base-color);
+}
+
+/* contact */
+
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text a {
+  margin-top: 2rem;
+}
+
+#contact i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+/* footer */
+
+footer {
+  background: var(--base-color);
+}
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+footer .social a {
+  color: var(--text-color-light);
+  font-size: 1.5rem;
+  margin-right: 2rem;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-4px);
+}
+
+/* Back to top */
+
+.back-to-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.5rem;
+  font-size: 1rem;
+  clip-path: circle();
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: 0.4s;
+  transform: translateY(150%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* responsive */
+
+@media (min-width: 992px) {
 }
