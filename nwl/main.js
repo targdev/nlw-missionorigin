@@ -35,7 +35,13 @@ const swiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination'
   },
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 /* scroll reveal */
@@ -53,8 +59,32 @@ scrollReveal.reveal(
   }
 )
 
-/* back to top */
+/* activate width in section active */
+const sections = document.querySelectorAll('main section[id]')
+function activateMenuAtCurrentSection() {
+  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
 
+  for (const section of sections) {
+    const sectionTop = section.offsetTop
+    const sectionHeight = section.offsetHeight
+    const sectionId = section.getAttribute('Id')
+
+    const checkpointStart = checkpoint >= sectionTop
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+
+    if (checkpointStart && checkpointEnd) {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.add('active')
+    } else {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.remove('active')
+    }
+  }
+}
+
+/* wheen screen */
 function backToBackTop() {
   const backToBackTopButton = document.querySelector('.back-to-top')
 
@@ -68,4 +98,5 @@ function backToBackTop() {
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll()
   backToBackTop()
+  activateMenuAtCurrentSection()
 })
